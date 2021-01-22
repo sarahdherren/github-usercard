@@ -3,7 +3,12 @@
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-
+import 'regenerator-runtime/runtime'
+const fetchGithub = async () => {
+ const result = await axios.get('https://api.github.com/users/sarahdherren')
+  console.log(result)
+}
+fetchGithub()
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -32,9 +37,46 @@ const followersArray = [];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
-    Using DOM methods and properties, create and return the following markup:
+    Using DOM methods and properties, create and return the following markup:*/
+function userCardCreator(user) {
+  const card = document.createElement('div')
+  card.classList.add('card')
+  const image = document.createElement('img')
+  image.src = 'data.avatar_url'
+  const cardInfo = document.createElement('div')
+  cardInfo.classList.add('card-info')
+  const name = document.createElement('h3')
+  name.classList.add('name')
+  name.textContent = `${data.name}`
+  const userName = document.createElement('p')
+  userName.classList.add('username')
+  userName.textContent = `${data.username}`
+  const location = document.createElement('p')
+  location.textContent = `${data.location}`
+  const profile = document.createElement('p')
+  profile.textContent = 'Profile:'
+  const gitLink = document.createElement('a')
+  gitLink.textContent = `${data.html_url}`
+  const followers = document.createElement('p')
+  followers.textContent = 'Followers: `${data.followers}`'
+  const following = document.createElement('p')
+  following.textContent = 'Following: `${data.following}`'
+  const bio = document.createElement('p')
+  bio.textContent = 'Bio: `${data.bio}`'
 
-    <div class="card">
+  card.append(image)
+  card.append(cardInfo)
+  cardInfo.append(name)
+  cardInfo.append(userName)
+  cardInfo.append(location)
+  cardInfo.append(profile)
+  profile.append(gitLink)
+  cardInfo.append(followers)
+  cardInfo.append(following)
+  cardInfo.append(bio)
+
+}
+   /* <div class="card">
       <img src={image url of user} />
       <div class="card-info">
         <h3 class="name">{users name}</h3>
