@@ -6,24 +6,10 @@ import 'regenerator-runtime/runtime'
     https://api.github.com/users/<your name>
 */
 
-
-
-// const fetchGithub = async () => {
-//  const result = await axios.get('https://api.github.com/users/sarahdherren')
-//   console.log(result.data.name)
-// }
-
-//const userData = axios.get('https://api.github.com/users/sarahdherren')
-
-
-
-
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
     data in order to use it to build your component function */
-
-//console.log(userData)
 
 /*
     Skip to STEP 3.
@@ -110,19 +96,19 @@ function userCardCreator(object) {
   return card;
 };
    /* <div class="card">
-   <img src={image url of user} />
-   <div class="card-info">
-     <h3 class="name">{users name}</h3>
-     <p class="username">{users user name}</p>
-     <p>Location: {users location}</p>
-     <p>Profile:
-       <a href={address to users github page}>{address to users github page}</a>
-     </p>
-     <p>Followers: {users followers count}</p>
-     <p>Following: {users following count}</p>
-     <p>Bio: {users bio}</p>
-   </div>
- </div>
+<img src={image url of user} />
+<div class="card-info">
+  <h3 class="name">{users name}</h3>
+  <p class="username">{users user name}</p>
+  <p>Location: {users location}</p>
+  <p>Profile:
+    <a href={address to users github page}>{address to users github page}</a>
+  </p>
+  <p>Followers: {users followers count}</p>
+  <p>Following: {users following count}</p>
+  <p>Bio: {users bio}</p>
+</div>
+</div>
 */
 
 /*
