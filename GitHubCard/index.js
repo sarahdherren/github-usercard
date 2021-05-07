@@ -20,11 +20,14 @@ import 'regenerator-runtime/runtime'
     and append the returned markup to the DOM as a child of .cards
 */
 const cards = document.querySelector('.cards');
+
 axios.get('https://api.github.com/users/sarahdherren')
   .then(res => {
     console.log(res.data.followers_url)
+    console.log(res.data)
     cards.append(userCardCreator(res.data));
   })
+
   .catch(err => {
     console.log('something went wrong', err);
   });
@@ -43,6 +46,7 @@ axios.get('https://api.github.com/users/sarahdherren')
 
 const followersArray = ['harvey-magana', 'evllz', 'cbarcinas', 'tetondan'];
 
+
 followersArray.forEach((login) => {
   axios.get(`https://api.github.com/users/${login}`)
     .then(res => {
@@ -56,31 +60,31 @@ followersArray.forEach((login) => {
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
     Using DOM methods and properties, create and return the following markup:*/
-function userCardCreator(object) {
+function userCardCreator(user) {
   const card = document.createElement('div');
   card.classList.add('card');
   const image = document.createElement('img');
-  image.src = object.avatar_url;
+  image.src = user.avatar_url;
   const cardInfo = document.createElement('div');
   cardInfo.classList.add('card-info');
   const nameHeader = document.createElement('h3');
   nameHeader.classList.add('name');
-  nameHeader.textContent = object.name;
+  nameHeader.textContent = user.name;
   const userName = document.createElement('p');
   userName.classList.add('username');
-  userName.textContent = object.login;
+  userName.textContent = user.login;
   const location = document.createElement('p');
-  location.textContent = object.location;
+  location.textContent = user.location;
   const profile = document.createElement('p');
   profile.textContent = 'Profile:';
   const gitLink = document.createElement('a');
-  gitLink.textContent = object.html_url;
+  gitLink.textContent = user.html_url;
   const followers = document.createElement('p');
-  followers.textContent = `Followers: ${object.followers}`;
+  followers.textContent = `Followers: ${user.followers}`;
   const following = document.createElement('p');
-  following.textContent = `Following: ${object.following}`;
+  following.textContent = `Following: ${user.following}`;
   const bio = document.createElement('p');
-  bio.textContent = `Bio: ${object.bio}`;
+  bio.textContent = `Bio: ${user.bio}`;
 
   card.append(image);
   card.append(cardInfo);
